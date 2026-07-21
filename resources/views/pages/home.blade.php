@@ -1,5 +1,4 @@
 @extends('layouts.app')
-juliana 2:49
 @section('content')
 <div class="home-page">
     <div class="decor decor-top-left-1"></div>
@@ -13,7 +12,7 @@ juliana 2:49
     <header class="navbar container">
         <div class="logo"></div>
         <nav>
-         <a href="{{ route('forecasting') }}">FORECASTING</a>
+         <a href="#">FORECASTING</a>
             <a href="#">PROCUREMENT</a>
             <a href="#">LOGISTICS</a>
             <a href="#">INVENTORY</a>

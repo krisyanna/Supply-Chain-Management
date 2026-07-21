@@ -8,12 +8,36 @@
         </div>
 
         <nav class="dashboard-nav">
-            <a href="{{ route('dashboard') }}">HOME</a>
-            <a class="active" href="{{ route('forecasting') }}">FORECASTING</a>
-            <a href="#">PROCUREMENT</a>
-            <a href="#">LOGISTICS</a>
-            <a href="#">INVENTORY</a>
-            <a href="#">REPORTS</a>
+            <nav class="dashboard-nav">
+    <a href="{{ route('dashboard') }}"
+       class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
+        HOME
+    </a>
+
+    <a href="{{ route('forecasting') }}"
+       class="{{ request()->routeIs('forecasting*') ? 'active' : '' }}">
+        FORECASTING
+    </a>
+
+    <a href="{{ route('suppliers.index') }}"
+       class="{{ request()->routeIs('suppliers.index') ? 'active' : '' }}">
+        PROCUREMENT
+    </a>
+
+ <a href="{{ route('logistics.dashboard') }}"
+   class="{{ request()->routeIs('logistics.*') ? 'active' : '' }}">
+    LOGISTICS
+</a>
+
+<a href="{{ route('inventory') }}"
+   class="{{ request()->routeIs('inventory') ? 'active' : '' }}">
+    INVENTORY
+</a>
+
+<a href="{{ route('reports.index') }}"
+   class="{{ request()->routeIs('reports.*') ? 'active' : '' }}">
+    REPORTS
+</a>
         </nav>
     </header>
 
@@ -58,7 +82,7 @@
             <div class="stat-card">
                 <p>Total Unit Sold</p>
                 <h3>{{ number_format($totalUnitSold) }}</h3>
-                <span>Product Sold</span>
+                <span>Overall   Product Sold</span>
             </div>
 
             <div class="stat-card">

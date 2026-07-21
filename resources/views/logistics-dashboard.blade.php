@@ -151,9 +151,19 @@
                 <button onclick="switchTab('status')" id="btn-status" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl transition duration-200 font-medium text-left">
                     <i class="fa-solid fa-bell text-lg"></i> Shipment Status
                 </button>
-                <button onclick="switchTab('home')" id="btn-home" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl transition duration-200 font-medium text-left">
-                    <i class="fa-solid fa-house text-lg"></i> Home
-                </button>
+
+                <!-- LINK BACK TO MAIN DASHBOARD / PAGES.DASHBOARD -->
+                <div class="pt-4 mt-4 border-t border-slate-700/60">
+                    @if(Route::has('dashboard'))
+                        <a href="{{ route('dashboard') }}" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-indigo-300 hover:text-white hover:bg-indigo-600/30 transition duration-200 font-bold text-left text-xs bg-indigo-950/40 border border-indigo-500/20">
+                            <i class="fa-solid fa-house text-indigo-400 text-sm"></i> Back to Main Home
+                        </a>
+                    @else
+                        <a href="{{ url('/dashboard') }}" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-indigo-300 hover:text-white hover:bg-indigo-600/30 transition duration-200 font-bold text-left text-xs bg-indigo-950/40 border border-indigo-500/20">
+                            <i class="fa-solid fa-house text-indigo-400 text-sm"></i> Back to Main Home
+                        </a>
+                    @endif
+                </div>
             </nav>
         </aside>
 
@@ -651,12 +661,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- 5. HOME TAB VIEW -->
-                <div id="view-home" class="tab-view bg-white p-8 rounded-2xl border border-slate-200 shadow-sm text-center hidden">
-                    <h2 class="text-xl font-bold text-slate-800">Welcome to Logistics Workspace</h2>
-                    <p class="text-sm text-slate-500 mt-2">Please select any option from the sidebar directory to access analytics workspaces.</p>
                 </div>
 
                 <!-- MAP OVERLAY PANEL -->

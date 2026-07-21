@@ -8,6 +8,10 @@ class Supplier extends Model
 {
     protected $fillable = [
         'name',
+        'contact_person',
+        'email',
+        'phone_number',
+        'status',
     ];
 
     public function purchaseOrders()

@@ -9,6 +9,7 @@ use App\Http\Controllers\PurchaseOrderController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\LogisticsController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,9 +53,8 @@ Route::post('/sales', [SalesController::class, 'store'])->name('sales.store');
 |--------------------------------------------------------------------------
 */
 
-Route::get('/suppliers', function () {
-    return view('suppliers.index');
-})->name('suppliers.index');
+Route::get('/suppliers', [SupplierController::class, 'index'])
+    ->name('suppliers.index');
 
 Route::resource('purchase-orders', PurchaseOrderController::class);
 

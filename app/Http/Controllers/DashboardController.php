@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Inventory;
 use App\Models\Product;
 use App\Models\Sale;
+use App\Models\LogisticsShipment;
+use App\Models\Supplier;
+use App\Models\PurchaseOrder;
 use Carbon\Carbon;
 
 class DashboardController extends Controller
@@ -14,11 +17,9 @@ class DashboardController extends Controller
         // Top stat cards
         $totalInventory = Product::count();
 
-        // No Procurement/Logistics/Suppliers tables yet - these stay static
-        // until those pages exist. Swap for real queries once you build them.
-        $totalOrders = 156;
-        $activeShipments = 84;
-        $totalSuppliers = 38;
+      $totalOrders = PurchaseOrder::count();
+      $activeShipments = LogisticsShipment::count();
+      $totalSuppliers = Supplier::count();
 
         // Real trend behind the "Total Inventory" sparkline: units sold per
         // month for the last 6 months. Not literally inventory-count-over-time

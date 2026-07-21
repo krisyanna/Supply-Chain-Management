@@ -11,20 +11,35 @@
         </div>
 
         <nav class="dashboard-nav">
-  <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">HOME</a>
-            <a class="active" href="{{ route('forecasting') }}">FORECASTING</a>
-            
-           <a href="{{ route('suppliers.index') }}"
+    <a href="{{ route('dashboard') }}"
+       class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
+        HOME
+    </a>
+
+    <a href="{{ route('forecasting') }}"
+       class="{{ request()->routeIs('forecasting*') ? 'active' : '' }}">
+        FORECASTING
+    </a>
+
+    <a href="{{ route('suppliers.index') }}"
        class="{{ request()->routeIs('suppliers.index') ? 'active' : '' }}">
         PROCUREMENT
     </a>
-                   <a href="{{ route('logistics.dashboard') }}"
-       class="{{ request()->routeIs('logistics.*') ? 'active' : '' }}">
-          LOGISTICS
+
+ <a href="{{ route('logistics.dashboard') }}"
+   class="{{ request()->routeIs('logistics.*') ? 'active' : '' }}">
+    LOGISTICS
 </a>
-            <a href="#">INVENTORY</a>
-            <a href="#">REPORTS</a>
-        </nav>
+
+<a href="{{ route('inventory') }}"
+   class="{{ request()->routeIs('inventory') ? 'active' : '' }}">
+    INVENTORY
+</a>
+
+<a href="{{ route('reports.index') }}"
+   class="{{ request()->routeIs('reports.*') ? 'active' : '' }}">
+    REPORTS
+</a>
     </header>
 
     <main class="container dashboard-content">
@@ -36,7 +51,7 @@
             <a href="{{ route('forecasting.historical') }}" class="stat-card stat-card--link">
     <p>Historical Sales</p>
     <h3>{{ number_format($historicalSalesTotal) }}</h3>
-    <span>Products Sold</span>
+    <span>Products Sold Last 6 Months</span>
 </a>
 
 <a href="{{ route('forecasting.demand') }}" class="stat-card stat-card--link">
