@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+juliana 2:49
 @section('content')
 <div class="home-page">
     <div class="decor decor-top-left-1"></div>
