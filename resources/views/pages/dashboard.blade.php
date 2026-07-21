@@ -1,7 +1,8 @@
 @extends('layouts.app')
 Paracale
 Aquino, Juliana
-2:29
+
+3:12
 @section('content')
 <div class="dashboard-page">
     <header class="dashboard-top container">
