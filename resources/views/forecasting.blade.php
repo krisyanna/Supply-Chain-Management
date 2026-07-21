@@ -13,8 +13,15 @@
         <nav class="dashboard-nav">
   <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">HOME</a>
             <a class="active" href="{{ route('forecasting') }}">FORECASTING</a>
-            <a href="#">PROCUREMENT</a>
-            <a href="#">LOGISTICS</a>
+            
+           <a href="{{ route('suppliers.index') }}"
+       class="{{ request()->routeIs('suppliers.index') ? 'active' : '' }}">
+        PROCUREMENT
+    </a>
+                   <a href="{{ route('logistics.dashboard') }}"
+       class="{{ request()->routeIs('logistics.*') ? 'active' : '' }}">
+          LOGISTICS
+</a>
             <a href="#">INVENTORY</a>
             <a href="#">REPORTS</a>
         </nav>

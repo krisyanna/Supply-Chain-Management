@@ -17,9 +17,8 @@ class PurchaseOrderController extends Controller
 
         $totalOrders = PurchaseOrder::count();
 
-        // Temporary until you add a status column
-        $completedOrders = 0;
-        $pendingOrders = 0;
+      $completedOrders = PurchaseOrder::where('status', 'Completed')->count();
+      $pendingOrders = PurchaseOrder::where('status', 'Pending')->count();
 
         return view('purchase-orders.index', compact(
             'purchaseOrders',

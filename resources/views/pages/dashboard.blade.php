@@ -29,9 +29,20 @@ Aquino, Juliana
         PROCUREMENT
     </a>
 
-    <a href="#">LOGISTICS</a>
-    <a href="#">INVENTORY</a>
-    <a href="#">REPORTS</a>
+ <a href="{{ route('logistics.dashboard') }}"
+   class="{{ request()->routeIs('logistics.*') ? 'active' : '' }}">
+    LOGISTICS
+</a>
+
+<a href="{{ route('inventory') }}"
+   class="{{ request()->routeIs('inventory') ? 'active' : '' }}">
+    INVENTORY
+</a>
+
+<a href="{{ route('reports.index') }}"
+   class="{{ request()->routeIs('reports.*') ? 'active' : '' }}">
+    REPORTS
+</a>
 </nav>
     </header>
               
