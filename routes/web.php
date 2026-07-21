@@ -55,7 +55,8 @@ Route::post('/sales', [SalesController::class, 'store'])->name('sales.store');
 
 Route::get('/suppliers', [SupplierController::class, 'index'])
     ->name('suppliers.index');
-
+Route::post('/suppliers', [SupplierController::class, 'store'])
+    ->name('suppliers.store');
 Route::resource('purchase-orders', PurchaseOrderController::class);
 
 /*

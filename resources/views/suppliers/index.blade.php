@@ -9,6 +9,73 @@
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        .alert-success{
+            background:#d4edda;
+            color:#155724;
+            padding:12px 18px;
+            border-radius:8px;
+            margin-bottom:20px;
+        }
+
+        .modal{
+            display:none;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,.45);
+            justify-content:center;
+            align-items:center;
+            z-index:999;
+        }
+
+        .modal-content{
+            background:#fff;
+            width:450px;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 10px 30px rgba(0,0,0,.2);
+        }
+
+        .modal-content h2{
+            margin-bottom:20px;
+        }
+
+        .modal-content input,
+        .modal-content select{
+            width:100%;
+            padding:12px;
+            margin-bottom:15px;
+            border:1px solid #ddd;
+            border-radius:6px;
+            box-sizing:border-box;
+        }
+
+        .close{
+            float:right;
+            font-size:26px;
+            cursor:pointer;
+        }
+
+        .btn-save{
+            width:100%;
+            background:#2d7a46;
+            color:#fff;
+            border:none;
+            padding:12px;
+            border-radius:6px;
+            cursor:pointer;
+            font-size:15px;
+        }
+
+        .btn-save:hover{
+            background:#25653a;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -36,28 +103,28 @@
                 </li>
 
                 <li>
-                        <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('dashboard') }}">
                         <i class="fa-solid fa-table-cells-large"></i>
                         Dashboard
                     </a>
                 </li>
 
                 <li class="active">
-                    <a href="{{ url('/suppliers') }}">
+                    <a href="{{ route('suppliers.index') }}">
                         <i class="fa-solid fa-users"></i>
                         Suppliers
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ url('/purchase-orders') }}">
+                    <a href="{{ route('purchase-orders.index') }}">
                         <i class="fa-solid fa-file-invoice"></i>
                         Purchase Orders
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ url('/purchase-orders/create') }}">
+                    <a href="{{ route('purchase-orders.create') }}">
                         <i class="fa-solid fa-plus"></i>
                         Create Purchase Order
                     </a>
@@ -73,32 +140,25 @@
 
     <main class="main-content">
 
-        <!-- HEADER -->
-
         <header class="top-header">
 
             <div>
-
                 <h1>Suppliers</h1>
-
-                <p>
-                    Manage your supplier directory.
-                </p>
-
+                <p>Manage your supplier directory.</p>
             </div>
 
             <div class="header-right">
 
                 <div class="search-box">
-
                     <input
-                    type="text"
-                    id="searchSupplier"
-                    placeholder="Search Supplier...">
-
+                        type="text"
+                        id="searchSupplier"
+                        placeholder="Search Supplier...">
                 </div>
 
-                <button class="btn-primary">
+                <button
+                    class="btn-primary"
+                    onclick="document.getElementById('supplierModal').style.display='flex'">
 
                     <i class="fa-solid fa-user-plus"></i>
 
@@ -110,7 +170,17 @@
 
         </header>
 
-        <!-- SUMMARY -->
+        @if(session('success'))
+
+            <div class="alert-success">
+
+                {{ session('success') }}
+
+            </div>
+
+        @endif
+
+        <!-- ================= SUMMARY ================= -->
 
         <section class="stats">
 
@@ -126,7 +196,7 @@
 
                     <h5>Total Suppliers</h5>
 
-                    <h2>38</h2>
+                    <h2>{{ $totalSuppliers }}</h2>
 
                     <p>Registered Suppliers</p>
 
@@ -146,7 +216,7 @@
 
                     <h5>Active</h5>
 
-                    <h2>31</h2>
+                    <h2>{{ $activeSuppliers }}</h2>
 
                     <p>Currently Active</p>
 
@@ -166,7 +236,7 @@
 
                     <h5>Pending</h5>
 
-                    <h2>7</h2>
+                    <h2>{{ $pendingSuppliers }}</h2>
 
                     <p>Awaiting Approval</p>
 
@@ -176,7 +246,7 @@
 
         </section>
 
-        <!-- TABLE -->
+        <!-- ================= TABLE ================= -->
 
         <div class="table-card">
 
@@ -202,160 +272,199 @@
 
                 <thead>
 
-                <tr>
+                    <tr>
 
-                    <th>Supplier</th>
+                        <th>Supplier</th>
 
-                    <th>Contact</th>
+                        <th>Contact</th>
 
-                    <th>Email</th>
+                        <th>Email</th>
 
-                    <th>Phone</th>
+                        <th>Phone</th>
 
-                    <th>Status</th>
+                        <th>Status</th>
 
-
-                </tr>
+                    </tr>
 
                 </thead>
 
                 <tbody>
 
-                <tr>
+@forelse($suppliers as $supplier)
 
-                    <td>Global Components Inc.</td>
+<tr>
 
-                    <td>Jennie Kim</td>
+    <td>{{ $supplier->name }}</td>
 
-                    <td>global@email.com</td>
+    <td>{{ $supplier->contact_person }}</td>
 
-                    <td>09123456789</td>
+    <td>{{ $supplier->email }}</td>
 
-                    <td><span class="active-status">Active</span></td>
+    <td>{{ $supplier->phone_number }}</td>
 
+    <td>
 
-                </tr>
+        @if($supplier->status == 'Active')
 
-                <tr>
+            <span class="active-status">
 
-                    <td>ABC Electronics</td>
+                {{ $supplier->status }}
 
-                    <td>Mark Lee</td>
+            </span>
 
-                    <td>abc@email.com</td>
+        @else
 
-                    <td>09111111111</td>
+            <span class="pending-status">
 
-                    <td><span class="pending-status">Pending</span></td>
+                {{ $supplier->status }}
 
+            </span>
 
-                </tr>
+        @endif
 
-                <tr>
+    </td>
 
-                    <td>TechSource Ltd.</td>
+</tr>
 
-                    <td>Lisa Park</td>
+@empty
 
-                    <td>tech@email.com</td>
+<tr>
 
-                    <td>09222222222</td>
+    <td colspan="5" class="empty">
 
-                    <td><span class="active-status">Active</span></td>
+        <i class="fa-solid fa-users"
+           style="font-size:40px;margin-bottom:15px;"></i>
 
-                   
+        <br>
 
-                </tr>
+        No Suppliers Found
 
-                <tr>
+    </td>
 
-                    <td>PC Warehouse</td>
+</tr>
 
-                    <td>John Cruz</td>
+@endforelse
 
-                    <td>warehouse@email.com</td>
+</tbody>
 
-                    <td>09333333333</td>
+</table>
 
-                    <td><span class="active-status">Active</span></td>
+</div>
 
-                    
-                </tr>
+</main>
 
-                <tr>
+</div>
 
-                    <td>Prime IT Supply</td>
+<!-- ================= ADD SUPPLIER MODAL ================= -->
 
-                    <td>Maria Santos</td>
+<div id="supplierModal" class="modal">
 
-                    <td>prime@email.com</td>
+    <div class="modal-content">
 
-                    <td>09444444444</td>
+        <span class="close"
+              onclick="closeModal()">
 
-                    <td><span class="pending-status">Pending</span></td>
+            &times;
 
-                   
+        </span>
 
-                </tr>
+        <h2>Add Supplier</h2>
 
-                </tbody>
+        <form action="{{ route('suppliers.store') }}" method="POST">
 
-            </table>
+            @csrf
 
-            <!-- PAGINATION -->
+            <input
+                type="text"
+                name="name"
+                placeholder="Supplier Name"
+                required>
 
-            <div class="pagination">
+            <input
+                type="text"
+                name="contact_person"
+                placeholder="Contact Person"
+                required>
 
-                <button>Previous</button>
+            <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required>
 
-                <button class="active-page">1</button>
+            <input
+                type="text"
+                name="phone_number"
+                placeholder="Phone Number"
+                required>
 
-                <button>2</button>
+            <select name="status" required>
 
-                <button>3</button>
+                <option value="Active">Active</option>
 
-                <button>4</button>
+                <option value="Pending">Pending</option>
 
-                <button>5</button>
+            </select>
 
-                <button>Next</button>
+            <button
+                type="submit"
+                class="btn-save">
 
-            </div>
+                <i class="fa-solid fa-floppy-disk"></i>
 
-        </div>
+                Save Supplier
 
-    </main>
+            </button>
+
+        </form>
+
+    </div>
 
 </div>
 
 <script>
 
-const search=document.getElementById("searchSupplier");
+// ================= SEARCH =================
 
-search.addEventListener("keyup",function(){
+const search = document.getElementById("searchSupplier");
 
-let filter=this.value.toUpperCase();
+search.addEventListener("keyup", function(){
 
-let rows=document.querySelectorAll("#supplierTable tbody tr");
+    let filter = this.value.toUpperCase();
 
-rows.forEach(function(row){
+    let rows = document.querySelectorAll("#supplierTable tbody tr");
 
-let text=row.innerText.toUpperCase();
+    rows.forEach(function(row){
 
-row.style.display=text.includes(filter)?"":"none";
+        let text = row.innerText.toUpperCase();
+
+        row.style.display = text.includes(filter) ? "" : "none";
+
+    });
 
 });
 
-});
+// ================= MODAL =================
 
+function closeModal(){
 
+    document.getElementById("supplierModal").style.display = "none";
 
+}
 
+window.onclick = function(event){
+
+    let modal = document.getElementById("supplierModal");
+
+    if(event.target == modal){
+
+        modal.style.display = "none";
+
+    }
+
+}
 
 </script>
 
-
-
-</div>
 </body>
 </html>
