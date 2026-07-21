@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+Paracale
+2:29
 @section('content')
 <div class="dashboard-page">
     <header class="dashboard-top container">
