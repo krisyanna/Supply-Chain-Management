@@ -1,5 +1,6 @@
 @extends('layouts.app')
 Paracale
+Aquino, Juliana
 2:29
 @section('content')
 <div class="dashboard-page">
