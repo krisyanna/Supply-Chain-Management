@@ -1,0 +1,750 @@
+/*==================================================
+    GOOGLE FONT
+==================================================*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/*==================================================
+    RESET
+==================================================*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f6f7fb;
+    color:#333;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+ul{
+    list-style:none;
+}
+
+/*==================================================
+    LAYOUT
+==================================================*/
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+/*==================================================
+    SIDEBAR
+==================================================*/
+.sidebar{
+
+    width:250px;
+    background:#20295C;
+    color:#fff;
+
+    padding:25px 18px;
+
+    position:fixed;
+
+    left:0;
+    top:0;
+    bottom:0;
+
+    display:flex;
+    flex-direction:column;
+
+    box-shadow:6px 0 18px rgba(0,0,0,.15);
+
+}
+
+.logo{
+
+    text-align:center;
+
+    margin-bottom:50px;
+
+}
+
+.logo i{
+
+    font-size:58px;
+
+    margin-bottom:18px;
+
+}
+
+.logo h2{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    line-height:1.4;
+
+}
+
+.sidebar nav{
+
+    margin-top:20px;
+
+}
+
+.sidebar nav ul li{
+
+    margin-bottom:12px;
+
+}
+
+.sidebar nav ul li a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:14px 16px;
+
+    border-radius:10px;
+
+    color:#fff;
+
+    transition:.30s;
+
+    font-size:15px;
+
+}
+
+.sidebar nav ul li a i{
+
+    width:22px;
+
+    font-size:18px;
+
+    text-align:center;
+
+}
+
+.sidebar nav ul li a:hover{
+
+    background:#4E5CF2;
+
+}
+
+.sidebar nav ul li.active a{
+
+    background:#6157FF;
+
+    box-shadow:0 5px 15px rgba(97,87,255,.35);
+
+}
+
+/*==================================================
+    MAIN CONTENT
+==================================================*/
+.main-content{
+
+    flex:1;
+
+    margin-left:250px;
+
+    padding:45px;
+
+}
+
+/*==================================================
+    PAGE HEADER
+==================================================*/
+.top-header{
+
+    margin-bottom:35px;
+
+}
+
+.top-header h1{
+
+    font-size:36px;
+
+    color:#222;
+
+    font-weight:700;
+
+    margin-bottom:6px;
+
+}
+
+.top-header p{
+
+    color:#7a7a7a;
+
+    font-size:15px;
+
+}
+
+/*==================================================
+    CARD
+==================================================*/
+.table-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    margin-bottom:30px;
+
+}
+
+.table-header{
+
+    margin-bottom:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.table-header h3{
+
+    font-size:22px;
+
+    color:#222;
+
+    font-weight:700;
+
+}
+
+/*==================================================
+    FORM GRID
+==================================================*/
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.form-group label{
+
+    font-size:14px;
+
+    color:#666;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+/*==================================================
+    INPUTS
+==================================================*/
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    width:100%;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+    padding:12px 15px;
+
+    background:#fafafa;
+
+    font-size:14px;
+
+    transition:.30s;
+
+}
+
+.form-group textarea{
+
+    resize:none;
+
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+
+    outline:none;
+
+    border-color:#6157FF;
+
+    background:#fff;
+
+    box-shadow:0 0 0 4px rgba(97,87,255,.10);
+
+}
+
+.form-group input[readonly]{
+
+    background:#efefef;
+
+    color:#777;
+
+}
+
+.full-width{
+
+    grid-column:1 / 4;
+
+}
+
+/*==================================================
+    SECTION SPACING
+==================================================*/
+.section-space{
+
+    margin-top:35px;
+
+}
+
+/*==================================================
+    ORDER ITEMS TABLE
+==================================================*/
+
+#itemsTable{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+#itemsTable thead{
+    background:#f4f5fb;
+}
+
+#itemsTable thead th{
+
+    padding:15px;
+
+    color:#666;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    text-align:left;
+
+}
+
+#itemsTable tbody td{
+
+    padding:15px;
+
+    border-bottom:1px solid #ececec;
+
+    vertical-align:middle;
+
+}
+
+#itemsTable tbody tr:hover{
+
+    background:#fafbff;
+
+}
+
+#itemsTable input,
+#itemsTable select{
+
+    width:100%;
+
+    padding:10px 12px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+    background:#fafafa;
+
+    font-size:10px;
+
+    text-align: center;
+
+}
+
+#itemsTable input:focus,
+#itemsTable select:focus{
+
+    outline:none;
+
+    border-color:#6157FF;
+
+    background:#fff;
+
+}
+
+.row-number{
+
+    font-weight:700;
+
+    color:#20295C;
+
+    text-align:center;
+
+}
+
+.total{
+
+    font-weight:700;
+
+    color:#20295C;
+
+    font-size:15px;
+
+}
+
+/*==================================================
+    GRAND TOTAL
+==================================================*/
+
+.total-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.total-card h3{
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+#grandTotal{
+
+    color:#20295C;
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+/*==================================================
+    BUTTONS
+==================================================*/
+
+/*==================================================
+    BUTTONS
+==================================================*/
+
+/* Common Button Style */
+.btn-primary,
+.btn-edit,
+.btn-danger{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    height:44px;
+    min-width:130px;
+
+    padding:0 20px;
+
+    border:none;
+    border-radius:8px;
+
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+    transition:.3s;
+
+    text-decoration:none;
+}
+
+/* Create Button */
+.btn-primary{
+    background:#20295C;
+    color:#fff;
+}
+
+.btn-primary:hover{
+    background:#4450d9;
+}
+
+/* Edit Button */
+.btn-edit{
+    background:#3498db;
+    color:#fff;
+}
+
+.btn-edit:hover{
+    background:#2980b9;
+}
+
+/* Delete Button */
+.btn-danger{
+    background:#E74C3C;
+    color:#fff;
+}
+
+.btn-danger:hover{
+    background:#c0392b;
+}
+
+/* Action Buttons */
+.actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/*==================================================
+    BUTTON GROUP
+==================================================*/
+
+.action-buttons{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+/*==================================================
+    ADD ITEM BUTTON
+==================================================*/
+
+.table-header .btn-primary{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+/*==================================================
+    CARD ANIMATION
+==================================================*/
+
+.table-card{
+
+    animation:fadeUp .5s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==================================================
+    SCROLLBAR
+==================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#6157FF;
+
+    border-radius:30px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#ececec;
+
+}
+
+/*==================================================
+    RESPONSIVE
+==================================================*/
+
+@media(max-width:1100px){
+
+    .form-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .full-width{
+
+        grid-column:1/3;
+
+    }
+
+}
+
+@media(max-width:900px){
+
+    .sidebar{
+
+        width:90px;
+
+        padding:20px 10px;
+
+    }
+
+    .logo h2{
+
+        display:none;
+
+    }
+
+    .sidebar nav ul li a{
+
+        justify-content:center;
+
+    }
+
+    .sidebar nav ul li a i{
+
+        margin:0;
+
+    }
+
+    .sidebar nav ul li a{
+
+        font-size:0;
+
+    }
+
+    .sidebar nav ul li a i{
+
+        font-size:20px;
+
+    }
+
+    .main-content{
+
+        margin-left:90px;
+
+        padding:25px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .full-width{
+
+        grid-column:1;
+
+    }
+
+    .table-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+    .action-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .action-buttons button{
+
+        width:100%;
+
+    }
+
+    #itemsTable{
+
+        display:block;
+
+        overflow-x:auto;
+
+        white-space:nowrap;
+
+    }
+
+}
+
+@media(max-width:500px){
+
+    .main-content{
+
+        padding:15px;
+
+    }
+
+    .top-header h1{
+
+        font-size:28px;
+
+    }
+
+    .top-header p{
+
+        font-size:14px;
+
+    }
+
+}
+
+/* Supplier dropdown */
+select[name="supplier_id"]{
+    width: 320px;
+    max-width: 320px;
+}
+
