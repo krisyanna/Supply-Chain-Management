@@ -439,12 +439,12 @@ let index = 1;
 const products = `
 <option value="">Select Computer Part</option>
 
-<option value="AMD Ryzen 5 5600G" data-price="7899">AMD Ryzen 5 5600G - ₱7,899</option>
-<option value="AMD Ryzen 7 5700X" data-price="12999">AMD Ryzen 7 5700X - ₱12,999</option>
+<option value="AMD Ryzen 5 5600G" data-price="7899">AMD Ryzen 5 5600G - ₱8,899</option>
+<option value="AMD Ryzen 7 5700X" data-price="12999">AMD Ryzen 7 5700X - ₱10,999</option>
 <option value="Intel Core i5-12400F" data-price="9999">Intel Core i5-12400F - ₱9,999</option>
-<option value="Intel Core i7-12700K" data-price="19999">Intel Core i7-12700K - ₱19,999</option>
+<option value="Intel Core i7-12700K" data-price="19999">Intel Core i7-12700K - ₱15,999</option>
 
-<option value="ASUS B550M Motherboard" data-price="6499">ASUS B550M Motherboard - ₱6,499</option>
+<option value="ASUS B550M Motherboard" data-price="6499">ASUS B550M Motherboard - ₱7,499</option>
 <option value="MSI B760M Motherboard" data-price="8999">MSI B760M Motherboard - ₱8,999</option>
 
 <option value="ADATA 16GB DDR4 RAM" data-price="2399">ADATA 16GB DDR4 RAM - ₱2,399</option>
@@ -459,7 +459,7 @@ const products = `
 <option value="RTX 4070 Super" data-price="38999">RTX 4070 Super - ₱38,999</option>
 
 <option value="Corsair 650W PSU" data-price="3299">Corsair 650W PSU - ₱3,299</option>
-<option value="Cooler Master 750W Gold PSU" data-price="5899">Cooler Master 750W Gold PSU - ₱5,899</option>
+<option value="Cooler Master 750W Gold PSU" data-price="5899">Cooler Master 750W Gold PSU - ₱6,899</option>
 
 <option value="DeepCool CPU Cooler" data-price="1499">DeepCool CPU Cooler - ₱1,499</option>
 
